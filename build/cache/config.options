@@ -1,0 +1,5 @@
+[{"erlydtl", "build/deps/erlydtl/ebin"},
+ {"nocache", enabled}, {"verbose", enabled},
+ {"help", undefined}, {"prefix", "./"},
+ {"resolve_format", "resolv"},
+ {"resolve_file", "/etc/resolv.conf"}].

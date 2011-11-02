@@ -1,0 +1,15 @@
+#/usr/bin/env sh
+
+pushd .
+cd build
+if [[ "$1" = "--distclean" ]]
+    then
+        rm -drf ./deps
+        rebar clean skip_deps=true -v
+    else    
+        rebar get-deps compile -v
+        rebar escriptize skip_deps=true -v
+        echo "you now need to run ./configure [options] to continue the build process"
+fi
+popd
+

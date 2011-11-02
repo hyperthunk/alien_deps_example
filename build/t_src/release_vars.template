@@ -1,0 +1,17 @@
+%% NB: this file was generated automatically using libconf - do not edit it
+
+%% to have the stuff in `var' and `etc' hosted outside of the release folder,
+%% just set prefix to something e.g., "/usr/local/myapp/"
+
+%% NB: the spacing between ${var} and literals compensates for empty options
+{logdir,     "{{options.prefix}}var/log/ejabberd"}.
+{accesslog,  "{{options.prefix}}var/log/ejabberd/access.log"}.
+
+%% data dirs
+{webroot,    "{{options.prefix}}var/www"}.
+{mnesia_dir, "{{options.prefix}}var/data"}.
+
+%% inet config
+{inetrc_file,    "{{options.prefix}}etc/inetrc"}.
+{resolve_format, "{{options.resolve_format}}"}.
+{resolve_file,   "{{options.resolve_file}}"}.

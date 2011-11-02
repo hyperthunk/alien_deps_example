@@ -1,0 +1,9 @@
+{application, build,
+ [
+  {description, "rebar/configure bootstrap app"},
+  {vsn, "1"},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]}
+ ]}.
