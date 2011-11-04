@@ -49,7 +49,7 @@ pre_generate(Config, RelConfig) ->
             %% to whether or not we've succeeded in this operation....
             Result = file:write_file("reltool.config", Output, [write]),
             rebar_log:log(info, "Release config (reltool.config) generated? ~p~n",
-                                [Result]),
+                                [filelib:is_regular("reltool.config")]),
             Result;
         _ ->
             rebar_log:log(debug, "Skipping pre_generate in ~s~n", [DirName]),
