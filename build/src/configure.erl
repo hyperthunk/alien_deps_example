@@ -48,7 +48,8 @@ rules() ->
     [{checks, [
         #check{ type=rebar, name=rebar, mandatory=true,
                 capture=filename:join("build", "deps"),
-                data={ "git://github.com/hyperthunk/rebar.git" }}
+                data={"git://github.com/hyperthunk/rebar.git",
+                      "pub-cmd-alt-deps" }}
      ]},
      {templates, [
         #template{ name=rebar, output="rebar",
