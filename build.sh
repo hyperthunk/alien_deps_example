@@ -18,4 +18,4 @@ rebar configure \
 # generates a release, with the pre_release_plugin doing some extra pre/post 
 # processing work in order to fix various suprious artefacts of process-one's
 # decision to package ejabberd in a rather un-OTP manner
-./rebar -C release.config generate -v
+./rebar -C release.config clean generate -v
