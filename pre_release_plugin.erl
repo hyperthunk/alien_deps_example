@@ -3,7 +3,7 @@
 -module(pre_release_plugin).
 -export([clean/2]).
 -export([configure/2]).
--export([pre_generate/2, post_generate/2]).
+-export([prepare_release/2, post_generate/2]).
 
 %% TODO: think about writing a rebar_libconf_plugin...
 
@@ -21,7 +21,10 @@ configure(Config, _) ->
 
 %% TODO: consider moving this into the libconf project
 
-pre_generate(Config, RelConfig) ->
+%% hooking pre_generate to do this doesn't work, as rebar *requires*
+%% that the reltool.config file be available in order to choose 'rebar_reltool'
+%% *before* any plugins have a chance to run
+prepare_release(Config, RelConfig) ->
     %% NB: *this* function will run with any stock rebar (@'04/11/2011')
 
     DirName = filename:basename(rebar_utils:get_cwd()),
