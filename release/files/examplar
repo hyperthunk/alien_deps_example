@@ -63,6 +63,20 @@ ERTS_PATH=$RUNNER_BASE_DIR/erts-$ERTS_VSN/bin
 # Setup command to control the node
 NODETOOL="$ERTS_PATH/escript $ERTS_PATH/nodetool $NAME_ARG $COOKIE_ARG"
 
+export ETCDIR="$RUNNER_BASE_DIR/etc"
+export EJABBERD_CONFIG_PATH="$ETCDIR/ejabberd.cfg"
+export EJABBERDCTL_CONFIG_PATH="$ETCDIR/ejabberdctl.cfg"
+# TODO: use the value of ${logdir} from release.vars to populate this...
+export LOGS_DIR="$RUNNER_BASE_DIR/var/log/ejabberd"
+export SPOOLDIR="$RUNNER_BASE_DIR/var/data"
+
+export EJABBERD_LOG_PATH="$LOGS_DIR/ejabberd.log"
+# SASL_LOG_PATH=$LOGS_DIR/erlang.log
+# DATETIME=`date "+%Y%m%d-%H%M%S"`
+# ERL_CRASH_DUMP=$LOGS_DIR/erl_crash_$DATETIME.dump
+export ERL_INETRC="$ETCDIR/inetrc"
+# HOME="$SPOOLDIR"
+
 # Check the first argument for instructions
 case "$1" in
     start)
@@ -160,7 +174,7 @@ case "$1" in
         BINDIR=$ROOTDIR/erts-$ERTS_VSN/bin
         EMU=beam
         PROGNAME=`echo $0 | sed 's/.*\\///'`
-        CMD="$BINDIR/erlexec -boot $RUNNER_BASE_DIR/releases/$APP_VSN/$BOOTFILE -mode embedded -config $CONFIG_PATH -args_file $VMARGS_PATH -- ${1+"$@"}"
+        CMD="$BINDIR/erlexec -boot $RUNNER_BASE_DIR/releases/$APP_VSN/$BOOTFILE -mode interactive -config $CONFIG_PATH -args_file $VMARGS_PATH -- ${1+"$@"}"
         export EMU
         export ROOTDIR
         export BINDIR

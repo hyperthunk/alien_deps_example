@@ -25,6 +25,11 @@
 -include_lib("libconf/include/libconf.hrl").
 -compile(export_all).
 
+%% TODO: replace this with a libconf-bootstrap compatible bootstrap.config
+%%      so that the module (configure.erl) can be generated on the fly
+%%      (which also means we can avoid managing the 'build' directory 
+%%      structure and let libconf generate it on the fly)
+
 main(Args) ->
     libconf:configure(Args, options(), rules()).
 

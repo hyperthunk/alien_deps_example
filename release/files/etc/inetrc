@@ -1,4 +1,4 @@
 
 {lookup,["file","native"]}.
 {host,{127,0,0,1}, ["localhost","hostalias"]}.
-{file, {{resolve_format}}, {{resolve_file}}}.
+{file, {{resolve_format}}, "{{resolve_file}}" }.

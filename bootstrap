@@ -1,5 +1,7 @@
 #/usr/bin/env sh
 
+# TODO: move this over to the libconf-bootstrap mechanism
+
 pushd .
 cd build
 if [[ "$1" = "--distclean" ]]

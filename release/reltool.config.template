@@ -1,6 +1,6 @@
 {{ notice }}
 {sys, [
-       {lib_dirs, ["../lib"]},
+       {lib_dirs, ["../lib/ejabberd/src/install-files/lib"]},
        {rel, "examplar", "{{ git_vsn }}",
         [
          kernel,
@@ -48,7 +48,7 @@
     %% OTP config
     {template, "files/sys.config", "releases/\{\{rel_vsn\}\}/sys.config"},
     {copy, "files/vm.args", "releases/\{\{rel_vsn\}\}/vm.args"},
-    {copy, "files/inetrc", "\{\{root\}\}etc/inetrc"},
+    {template, "files/etc/inetrc", "etc/inetrc"},
 
     %% ejabberd config
     {template, "files/etc/ejabberd.cfg", "etc/ejabberd.cfg"}
